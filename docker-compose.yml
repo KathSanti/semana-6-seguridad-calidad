@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mysql-cdy2203:
+    image: mysql:8.0
+    container_name: mysql-cdy2203
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=myuser
+      - MYSQL_PASSWORD=password
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    build: .
+    container_name: backend-semana6
+    restart: unless-stopped
+    ports:
+      - "8180:8180"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-cdy2203:3306/mydatabase?autoReconnect=true&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=myuser
+      - SPRING_DATASOURCE_PASSWORD=password
+    depends_on:
+      - mysql-cdy2203
