@@ -51,6 +51,22 @@
 			<artifactId>logback-classic</artifactId>
 			<version>1.6.3</version>
 		</dependency>
+		<!-- Forzar versión segura para todas las dependencias en Bouncy Castle -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk18on</artifactId>
+			<version>1.85</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk18on</artifactId>
+			<version>1.85</version> <!-- AGREGADO -->
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcutil-jdk18on</artifactId>
+			<version>1.85</version> <!-- AGREGADO -->
+		</dependency>
 	</dependencies>
 </dependencyManagement>
 	<dependencies>
