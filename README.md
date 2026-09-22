@@ -1,4 +1,4 @@
-# Semana2-CDY2203
+# Semana2-CDY2203 - SEMANA 6
 
 ## Ejecución y Despliegue (Docker)
 
@@ -27,4 +27,25 @@ Una vez generada la carpeta `target`, levanta la base de datos y el backend con:
 ```bash
 docker-compose up -d --build
 ```
+ ## API Login
 
+**Endpoint:** `POST http://localhost:8080/login`
+
+**Headers requeridos:**
+- `Content-Type: application/json`
+
+**Cuerpo de la petición (Request Body):**
+```json
+{
+  "username": "admin",
+  "password": "123"
+}
+```
+
+## Uusarios de prueba 
+
+| Rol / Perfil | Username | Password | Email |
+| :--- | :--- | :--- | :--- |
+| **Administrador** | `admin` | `123` | `admin@veterinaria.cl` |
+| **Asistente** | `asistente` | `123` | `asistente@veterinaria.cl` |
+| **Cliente** | `cliente` | `123` | `cliente@veterinaria.cl` |
